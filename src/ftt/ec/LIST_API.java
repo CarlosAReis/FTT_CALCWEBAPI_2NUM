@@ -150,8 +150,8 @@ public class LIST_API extends HttpServlet {
 		System.out.println("Passei no PUT"+ new java.util.Date());
 		String id = request.getParameter("id");
 		String name = request.getParameter("name");
-		//response.getWriter().append(this.userData.)
-		response.getWriter().append(this.userData.put(id,name).toString());
+		this.userData.put(id, name);
+		response.getWriter().append(name+ " inserido");
 	}
 
 	/**
