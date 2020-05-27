@@ -161,15 +161,21 @@ public class LIST_API extends HttpServlet {
 		// TODO Auto-generated method stub
 		System.out.println("Passei no DELETE"+ new java.util.Date());
 		String id = request.getParameter("id");
-		if (id != null)
+		try
 		{
-			response.getWriter().append(this.userData.remove(id).toString());
-			response.getWriter().append(id + "  => Deletado");
-		}else if (id == null){
+			if (id != null)
+			{
+				response.getWriter().append(this.userData.remove(id).toString());
+				response.getWriter().append(id + "  => Deletado");
+			}else if (id == null){
+				response.getWriter().append("id informado invalido, não ha o que deletar");
+			}else {
+				response.getWriter().append("informe um id");
+			}
+		}catch(Exception e){
 			response.getWriter().append("id informado invalido, não ha o que deletar");
-		}else {
-			response.getWriter().append("informe um id");
 		}
+		
 		
 	}
 
